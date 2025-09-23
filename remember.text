@@ -1,0 +1,10 @@
+1. session are stored on the server side
+  - session data is stored in a cookie on the client side
+  - session data is stored in a database
+  - npm install --save express-session
+  - initialize session middleware in your Express app - app.use(session())
+2. cookie are stored on the client side
+3. connect session to a database like MongoDB using connect-mongo
+  - npm install --save connect-mongodb-session
+  - configure the session store to use MongoDB - const store = new MongoDBStore()
+  - pass the store to the session middleware - app.use(session({ store: store }))
