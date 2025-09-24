@@ -18,3 +18,13 @@
   - compare hashed passwords during login - bcrypt.compare()
     - with compare, we only face errors (in catch block) if something goes wrong not if the 
     passwords do not match
+
+5. route protection using middleware
+  - create a middleware function to check if the user is authenticated
+  - if not authenticated, redirect to login page
+  - apply this middleware to routes that require authentication
+
+6. CSRF (Cross-Site Request Forgery) protection
+  - npm install --save csurf
+  - initialize CSRF protection middleware in your Express app - app.use(csurf())
+  - include CSRF tokens in forms and AJAX requests to protect against CSRF attacks

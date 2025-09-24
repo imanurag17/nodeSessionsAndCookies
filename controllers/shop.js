@@ -38,7 +38,8 @@ exports.getIndex = (req, res, next) => {
         prods: products,
         pageTitle: 'Shop',
         path: '/',
-        isAuthenticated: req.session.isLoggedIn
+        // isAuthenticated: req.session.isLoggedIn,
+        // csrfToken: req.csrfToken()
       });
     })
     .catch(err => {
@@ -94,7 +95,7 @@ exports.postOrder = (req, res, next) => {
       });
       const order = new Order({
         user: {
-          name: req.user.name,
+          email: req.user.email,
           userId: req.user
         },
         products: products
@@ -111,7 +112,7 @@ exports.postOrder = (req, res, next) => {
 };
 
 exports.getOrders = (req, res, next) => {
-  Order.find({ 'user.userId': req.sesion.user._id })
+  Order.find({ 'user.userId': req.session.user._id })
     .then(orders => {
       res.render('shop/orders', {
         path: '/orders',
