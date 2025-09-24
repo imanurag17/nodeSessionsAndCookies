@@ -8,3 +8,13 @@
   - npm install --save connect-mongodb-session
   - configure the session store to use MongoDB - const store = new MongoDBStore()
   - pass the store to the session middleware - app.use(session({ store: store }))
+
+4. encrypt passwords using bcrypt
+  - npm install --save bcryptjs
+  - hash passwords before storing them in the database - bcrypt.hash(string, saltValues)
+    - string - the value to be hashed
+    - saltValues - number of rounds to process the data for hashing 
+  - this is an asynchronous operation that returns a promise
+  - compare hashed passwords during login - bcrypt.compare()
+    - with compare, we only face errors (in catch block) if something goes wrong not if the 
+    passwords do not match
