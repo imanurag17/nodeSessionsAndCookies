@@ -1,4 +1,6 @@
 const crypto = require('crypto')
+
+require('dotenv').config();
 const bcrypt = require('bcryptjs')
 const nodemailer = require('nodemailer')
 const sendgridTransport = require('nodemailer-sendgrid-transport')
@@ -11,12 +13,12 @@ const { log } = require('console')
 //   sendgridTransport({
 //     auth: {
 //       api_key:
-//         'REDACTED'
+//         process.env.SENDGRID_API_KEY
 //     }
 //   })
 // );
 
-sgMail.setApiKey('REDACTED');
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 exports.getLogin = (req, res, next) => {
   //const isLoggedIn = req.get('Cookie').split('=')[1]
