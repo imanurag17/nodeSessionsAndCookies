@@ -28,3 +28,20 @@
   - npm install --save csurf
   - initialize CSRF protection middleware in your Express app - app.use(csurf())
   - include CSRF tokens in forms and AJAX requests to protect against CSRF attacks
+
+7. flash messages for user feedback
+  - npm install --save connect-flash
+  - initialize flash middleware in your Express app - app.use(flash())
+  - set flash messages in your routes - req.flash('key', 'message')
+  - use flash messages to provide feedback to users after actions like login, logout, etc.
+
+8. Sending Emails
+  - node/express are used to build server-side logic. Handle incomming requests and send responses.
+  - node with express does not have built-in email sending capabilities
+  - sending email it totaly different technology.
+  - we use third party services like SendGrid, Mailgun, Amazon SES to send emails.
+  - npm install --save nodemailer nodemailer-sendgrid-transport
+  - nodemailer is a module that makes it easy to send emails from Node.js applications
+
+9. Implementing the Token logic
+  - node js has a built-in crypto library that provides cryptographic functionality
